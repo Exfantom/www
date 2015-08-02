@@ -1,0 +1,13 @@
+<div class="field row">
+    <div class="span2">{{field.title}}:</div>
+    <div class="span4">
+        <textarea  name="editor1" id="editor1" rows="10" cols="80" type="text" ng-model="field.value" value="{{field.value}}" ng-required="field.required" ng-disabled="field.disabled"></textarea>
+        <span class="required-error" ng-show="field.required && !field.value">* required</span>
+    </div>
+	            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                alert('22222');
+				CKEDITOR.replace( 'editor1' );
+            </script>
+</div>

@@ -15,6 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+	protected $Adminnamespace = 'App\Http\Controllers\Admin';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -40,5 +41,11 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace], function ($router) {
             require app_path('Http/routes.php');
         });
+		
+		$router->group(['namespace' => $this->Adminnamespace], function()
+		{
+			require app_path('Http/admin-routes.php');
+		});		
+		
     }
 }

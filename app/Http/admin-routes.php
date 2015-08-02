@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome',['content'=>'Laravel 5']);
-});
-
-Route::get('/admin/', function () {
-    return view('admin.main');
-});
 
 
-Route::get('/photo/', 'PhotoController@index');
+Route::get('/admin/gettree/{id?}', 'AdminController@listtree');
+
+//Route::controller('/admin/gettree/{id?}', 'AdminController');
+
+Route::get('/admin/getnodes/{id}', 'AdminController@listnode');
+
+Route::get('/admin/getcurrentnode/{id}', 'AdminController@getnode');
+
