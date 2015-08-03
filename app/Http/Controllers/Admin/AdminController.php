@@ -7,13 +7,40 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\page;
 use App\Node;
 use App\Exceptions;
+use App\Repository\TreeRepositoryInterface;
 
 class AdminController extends Controller
 {
-    /**
+	private $model;
+
+	/**
+	 * @return mixed
+	 */
+	public function getModel()
+	{
+		return $this->model;
+	}
+
+	/**
+	 * @param mixed $model
+	 */
+	public function setModel($model)
+	{
+		$this->model = $model;
+	}
+	/**
+	 * AdminController constructor.
+	 */
+	public function __construct(TreeRepositoryInterface $Repository)
+	{
+		$model=$Repository->getModel();
+		$this->setModel($model);
+		//var_dump($model);
+	}
+
+	/**
      * Display a listing of the resource.
      *
      * @return Response
@@ -23,12 +50,14 @@ class AdminController extends Controller
         //
     }
 	
-    public function listtree($id = 0)
+    public function listtree($model,$id = 0)
     {
+			$model=$this->getModel();
+
 			if (!$id)
-				$pages = page::getRoots()->get();
+				$pages = $model::getRoots()->get();
 			else{
-				$current_page = page::find((int)$id);
+				$current_page = $model::find((int)$id);
 				$pages = $current_page->nodes;
 				}
 				
