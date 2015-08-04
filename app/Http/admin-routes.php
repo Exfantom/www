@@ -21,5 +21,6 @@ Route::get('/admin/gettree/{adminmodel}/{id?}', 'AdminController@listtree');
 Route::get('/admin/getnodes/{id}', 'AdminController@listnode');
 
 
+
 Route::get('/admin/getcurrentnode/{id}', 'AdminController@getnode');
 
