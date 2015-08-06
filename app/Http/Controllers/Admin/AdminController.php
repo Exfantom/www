@@ -35,6 +35,7 @@ class AdminController extends Controller
 	 */
 	public function __construct(TreeRepositoryInterface $Repository)
 	{
+		$this->middleware('auth');
 		$model=$Repository->getModel();
 		$this->setModel($model);
 		//var_dump($model);
@@ -49,9 +50,13 @@ class AdminController extends Controller
     {
         //
     }
-	
-    public function listtree($model,$id = 0)
+
+
+
+
+    public function listtree($model=null,$id = 0)
     {
+
 			$model=$this->getModel();
 
 			if (!$id)

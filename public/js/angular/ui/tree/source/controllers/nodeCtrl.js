@@ -94,7 +94,7 @@
 
         $scope.toggle = function () {
           
-		    $http.get('/admin/gettree/'+$scope.$modelValue.id+'/').then(function(data) { 
+		    $http.get('/admin/gettree/page/'+$scope.$modelValue.id+'/').then(function(data) {
 				console.log("success!");
 				console.log(data);
 				$scope.$modelValue.nodes = data.data;				

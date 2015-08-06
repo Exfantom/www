@@ -42,7 +42,7 @@
         $scope.$broadcast('expandAll');
       };
 
-      $http.get('/admin/gettree/').success(function(data) { 
+      $http.get('/admin/gettree/page').success(function(data) {
 				console.log("success!");
 				console.log(data);
 				$scope.data = data;				
